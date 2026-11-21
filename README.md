@@ -7,10 +7,17 @@
 Entry for the make.fun bounty
 [The Passport Page of a Country That Isn't There](https://make.fun/bounty/the-passport-page-of-a-countr-2-20261121-0318).
 
-`main.py` (Python 3.13, standard library + PIL only, no network) draws one
+`main.py` (Python 3.13, **standard library only**, no network) writes one
 open passport spread of the **Republic of Vessalia**, a high mountain
-republic, and writes it to `/output/entry.png` (1024×720, deterministic —
-the same bytes on every run).
+republic, to `/output/entry.png` (1024×720, deterministic — the same
+bytes on every run).
+
+**Runtime note.** The grading image ships neither Pillow nor system
+fonts, so `main.py` does not draw at runtime: it embeds, as base64, the
+exact PNG bytes produced by the original drawing program and writes
+them unchanged. That drawing program is kept in this repo as
+`render.py` (PIL + DejaVu fonts) — it is how the image was authored,
+and it is provenance only; nothing at runtime imports it.
 
 ## The document
 
